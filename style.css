@@ -1,0 +1,58 @@
+/*
+    CSS comment
+*/
+
+/* selectors */
+
+/* tag selector */
+div {
+   color: rgb(204, 204, 204);
+}
+
+p {
+    font-size: 32px;
+}
+
+/* id selector */
+#d1 {
+    color: #333;
+}
+
+/* class selector */
+.d10s{
+    color: blue;
+}
+
+/* pseudo selectors */
+div:nth-child(2n+1) {
+    color: green;
+}
+
+div::before {
+}
+
+div::after{
+
+}
+
+div:hover, #d1:hover{
+    color: purple;
+}
+
+/* multi selectors */
+div.d10s{
+    color: blue;
+}
+
+div p span {
+    font-size: 16px;
+}
+
+div .dp1 {
+    font-size: 20px;
+}
+/* special selectors */
+
+#d1 > p {
+    font-weight: bold;
+}
