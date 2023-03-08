@@ -35,3 +35,70 @@ const b = 10; // exceptions
     key(string): value (any data type - string, number, object, array, functions)
 }
 */
+
+/**
+ * Arrays
+ * var arr = [];
+ * 
+ * properties of an array
+ * length (arr.length)
+ * 
+ * methods on Array
+ * Array.push (arr.push(2))
+ * Array.pop (arr.pop())
+ * 
+ * 
+ * Higher order array functions
+ * 
+ * arr = [{}, {}, {}];
+ * 
+ * arr.filter => it gives a subset of the array (size <= mainArray size)
+ * 
+ * Syntax: 
+ * 
+ * [1, 2, 3, 4].filter(function(el) {
+    if(el%2 === 0) {
+        return true;
+    }
+     });
+ */
+
+/** 
+ * for(var i=0; i<arr.length; i++) {
+     console.log(arr[i]);
+  }
+
+
+  arr.forEach((val) => {
+
+  });
+
+  arr.filter
+
+
+  arr.map
+
+  
+  arr.reduce
+*/
+
+
+/**
+ * null
+ * undefined
+ * empty
+ * false
+ * 0
+ */
+
+/** == vs ===
+ * 1 == "1" ? (false)
+ */
+
+/**
+ * type casting
+ * 1 "1"
+ * 1 + "1" = "11"
+ */
+
+
