@@ -15,7 +15,7 @@ typeof a; // returns data type
 // variable scope
 
 // block scoped
-let a;
+let ab;
 const b = 10; // exceptions 
 // if the variable type is object, you can change the children values
 
@@ -102,3 +102,12 @@ const b = 10; // exceptions
  */
 
 
+/**
+ * Document
+ *  getElementById - searches element by id only and returns 1st match
+ *  getElementsByClassName - searches elements by class name and returns list
+ *  getElementsByTagName - searches elements by tag name and returns list
+ * 
+ *  querySelector - searches using CSS selector and returns 1st match
+ *  querySelectorAll - Array of HTML nodes (elements)
+ */

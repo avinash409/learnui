@@ -50,6 +50,89 @@
         <div class="d10s">div 1000</div>
         <div>div 111</div>
         <div>div 123</div>
+
+        Captcha: <input id="valid-user" />
+        Captcha: <input id="valid-user-2" />
+        <a id="clickme" href="https://www.google.com">Click me</a>
+
+        <form name="my-form" id="my-form">
+            First name: <input name="fname" type="text"/>
+            Last name: <input name="lname" type="text" />
+            <button id="btn-submit">Submit</button>
+        </form>
+
+        <div id="parent">
+            <span>A</span>
+            <div id="child">
+                <span>B</span>
+                <div id="grand-child">
+                    <span>C</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">Learn Box</div>
+        <div class="box">Learn Box</div>
     </body>
     <script src="learn.js"></script>
+    <script>
+        document.getElementById('clickme').onclick = function(e){
+            e.preventDefault();
+            let ele;
+            if(1 == "1") {
+                ele = document.getElementById('valid-user');
+            } else {
+                ele = document.getElementById('valid-user-2');
+            }
+            if(ele.value === 'valid') {
+                location.href = event.target.href;
+            }
+        };
+
+
+        const formEle = document.getElementById('my-form');
+        const submitButton = document.getElementById('btn-submit');
+
+        formEle.onsubmit = function(event) {
+            event.preventDefault();
+            console.log('submit');
+        }
+
+        submitButton.onclick = function(event) {
+            event.preventDefault();
+            console.log('btn click');
+        }
+
+
+        /* Global scope variables */
+        const parent = document.getElementById('parent');
+        const child = document.getElementById('child');
+        const grandChild = document.getElementById('grand-child');
+
+        parent.onclick = function(event) {
+            const span = document.querySelector('#parent span');
+            span.innerHTML = 'Clicked ' + span.innerHTML;
+            console.log('clicked A');
+        }
+
+        child.onclick = function(event) {
+            event.stopPropagation();
+            const span = document.querySelector('#child span');
+            span.innerHTML = 'Clicked ' + span.innerHTML;
+            console.log('clicked B');
+        }
+
+        grandChild.onclick = function(event) {
+            event.stopPropagation();
+            const span = document.querySelector('#grand-child span');
+            span.innerHTML = 'Clicked ' + span.innerHTML;
+            console.log('clicked C');
+        }
+
+    </script>
+
+    <!--
+        HTML Events onsubmit, 
+        DOM Manipulation
+    -->
 </html>

@@ -56,3 +56,35 @@ div .dp1 {
 #d1 > p {
     font-weight: bold;
 }
+
+
+/**
+ *  Inline styles (style attribute)
+ * External styles
+ */
+
+ #parent, #child, #grand-child {
+    border:1px solid black;
+    padding: 10px;
+    margin: 10px;
+ }
+
+ .box {
+    width: 100px;
+    height: 100px;
+    border: 10px solid black;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+ }
+
+ /**
+  div - block level element
+  span - inline element
+  */
+
+
+/**
+ span(parent) div(child) - Semantic error
+ div - by default takes 100% width
+*/
