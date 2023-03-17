@@ -26,6 +26,18 @@
 
     <link href="style.css" rel="stylesheet" />
     <body>
+        <span>My Span 0</span><span>My Span 1</span>
+        
+        <div style="display:table;">
+            <div>
+                <div style="display: table-cell;">Cell 1</div>
+                <div style="display: table-cell;">Cell 2</div>
+                <div style="display: table-cell;">Cell 3</div>
+            </div>
+        </div>
+        
+        <span>My Span 2</span>
+
         <p>Main paragraph</p>
         <p class="d10s">p d10 </p>
         <div id="d1">
@@ -109,25 +121,105 @@
         const child = document.getElementById('child');
         const grandChild = document.getElementById('grand-child');
 
-        parent.onclick = function(event) {
-            const span = document.querySelector('#parent span');
+        function clickHandler(event) {
+            event.stopPropagation();
+
+            console.log(this); //window
+
+            const span = this.querySelector('span');
             span.innerHTML = 'Clicked ' + span.innerHTML;
-            console.log('clicked A');
         }
 
-        child.onclick = function(event) {
-            event.stopPropagation();
-            const span = document.querySelector('#child span');
-            span.innerHTML = 'Clicked ' + span.innerHTML;
-            console.log('clicked B');
+        parent.onclick = clickHandler;
+        
+        child.onclick = clickHandler;
+        grandChild.onclick = clickHandler;
+
+        const customEventHandler = (event) => {
+            // do some action with the event
         }
 
-        grandChild.onclick = function(event) {
-            event.stopPropagation();
-            const span = document.querySelector('#grand-child span');
-            span.innerHTML = 'Clicked ' + span.innerHTML;
-            console.log('clicked C');
+        // custom events
+        document.addEventListener('customEvent', customEventHandler);
+
+        const event = new Event('customEvent', {
+            pageName: ''
+        });
+
+        dispatchEvent(event);
+
+        function abc(params) {
+            console.log('f1', params);
         }
+
+        function abc(params1, params2) {
+            console.log('f2', params1, params2);
+        }
+
+        // es6 way using spread operator
+        function abc(...params) {
+            console.log(params);
+        }
+
+        function sum(...args) {
+            let sum = 0;
+
+            for(var i=0; i<args.length; i++) {
+                sum = sum + args[i];
+            }
+
+            return sum;
+        }
+        
+        // Old way
+        function Sum() {
+            let sum = 0;
+
+            for(var i=0; i< arguments.length; i++) {
+                sum = sum + arguments[i];
+            }
+
+            return sum;
+        }
+
+        abc(1);
+
+        abc(1,2);
+
+        var result = Sum(1,2,3, 5, 10);
+
+        var result2 = Sum(1,2);
+
+        console.log(result, result2 );
+
+
+        //paramater handling
+        // Rest operator
+
+        function SpecialSum(even, odd, ...args) {
+            let sum = 0;
+
+            if(even === true) {
+                for(var i=1; i<args.length; i=i+2) {
+                    sum = sum + args[i];
+                }
+            }
+
+            // sum = 2
+
+            if(odd === true) {
+                for(var i=0; i<args.length; i=i+2) {
+                    sum = sum + args[i];
+                }
+            }
+
+            return sum;
+        }
+
+        console.log(SpecialSum(true, false, 1, 2, 3));  // 2
+        console.log(SpecialSum(false, true, 1, 2, 3));  // 4
+        console.log(SpecialSum(true, true, 1, 2, 3));  // 6
+        console.log(SpecialSum(false, false, 1, 2, 3));  // 0
 
     </script>
 

@@ -68,18 +68,69 @@ const b = 10; // exceptions
      console.log(arr[i]);
   }
 
-
+  // alternative for
   arr.forEach((val) => {
 
   });
 
-  arr.filter
+  arr.filter((val, i) => {
+    // true
+  })
+
+  arr.map(val => {
+
+  })
+
+  arr.find(val => {
+    return '';
+  })
 
 
-  arr.map
+  true 
 
+
+
+  arr.some => boolean (union check a || b = return true if atleast one of them returns true)
+
+  arr.every => boolean (intersection a && b = returns true if all of them return true )
   
-  arr.reduce
+  // special cat
+    // acc - return val from previous loop, first time, it takes initial value
+
+
+  var result = arr.reduce((acc, val) => {
+    // Loop 1, acc = initialValue
+
+    // Loop 2, acc =  Loop 1 return value
+
+    // Loop 3 acc =  Loop 2 return value
+
+    return acc + val;
+  }, initialValue)
+
+  [1,2,3].reduce((sum, val) => {
+    // Loop 1 sum = 0, val = 1
+    // Loop 2 sum = 1, val = 2
+    // Loop 3 sum = 3, val = 3
+
+
+    return sum + val;
+  }, 0); = 6
+
+
+  students.reduce((acc, val) => {
+    // Loop 1 acc = {}, val = {name: 'S1', age: 12, gender: 'M'}
+    // Loop 2 acc = {S1:  {name: 'S1', age: 12, gender: 'M'}}, val = {name: 'S1', age: 12, gender: 'M'}
+    // Loop 3 sum = 3, val = 3
+
+    acc[val.name] = val; // {
+        S1:  {name: 'S1', age: 12, gender: 'M'},
+        S1:  {name: 'S2', age: 12, gender: 'M'}
+    }
+
+    return acc;
+  }, {});
+
 */
 
 
@@ -111,3 +162,78 @@ const b = 10; // exceptions
  *  querySelector - searches using CSS selector and returns 1st match
  *  querySelectorAll - Array of HTML nodes (elements)
  */
+
+
+/**
+ * Filter
+ */
+
+var bigArray = [1,5,9,11,12,15,18];
+
+var oddNumArray = bigArray.filter(num => {
+    return num%2 !== 0;
+});
+
+console.log(bigArray.length);
+console.log(oddNumArray.length);
+console.log("oddNumArray", oddNumArray); // filteredArray length <= mainArray
+
+var obj = { a: 1 };
+
+var students = [
+    {
+        name: 'S1',
+        age: 12,
+        gender: 'M'
+    },
+    {
+        name: 'S2',
+        age: 13,
+        gender: 'M',
+        community: {
+            cultural: true,
+            languages: ['telugu', 'Hindi']
+        }
+    },
+    {
+        name: 'S3',
+        age: 11,
+        gender: 'F'
+    }
+];
+
+if( section1Students.every(stu => {
+    
+    if(stu.age < 10){
+      return true;
+    }
+ }) === true ) {
+    // 
+}
+
+var section2Students;
+var section3Students;
+
+const mStudents = students.filter(student => {
+    return student.gender === 'M';
+});
+
+console.log(mStudents);
+
+/**
+ * MAp
+ */
+
+var bigArray = [1,5,9,11,12,15,18];
+
+var mappedArray = bigArray.map(num => {
+    return num * 2;
+});
+
+console.log("mappedArray", mappedArray); // filteredArray length <= mainArray
+
+
+// spread operator
+
+//shallow copy object
+var objB = {...a};
